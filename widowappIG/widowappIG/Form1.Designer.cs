@@ -47,7 +47,6 @@
             this.button11 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.infolabel = new System.Windows.Forms.Label();
@@ -57,6 +56,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button17 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button20 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,7 +81,6 @@
             this.label1.Size = new System.Drawing.Size(73, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "PlaySound";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -91,7 +91,6 @@
             this.label2.Size = new System.Drawing.Size(189, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Windows Media Player (WMP)";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -102,7 +101,6 @@
             this.label3.Size = new System.Drawing.Size(94, 16);
             this.label3.TabIndex = 3;
             this.label3.Text = "WaveOutWrite";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -123,7 +121,6 @@
             this.label5.Size = new System.Drawing.Size(30, 16);
             this.label5.TabIndex = 5;
             this.label5.Text = "MCI";
-            this.label5.Click += new System.EventHandler(this.label5_Click_1);
             // 
             // button2
             // 
@@ -255,39 +252,29 @@
             this.button14.TabIndex = 18;
             this.button14.Text = "Pause";
             this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
-            // 
-            // button15
-            // 
-            this.button15.Location = new System.Drawing.Point(682, 333);
-            this.button15.Margin = new System.Windows.Forms.Padding(4);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(108, 41);
-            this.button15.TabIndex = 19;
-            this.button15.Text = "Pause";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
+            this.button14.Click += new System.EventHandler(this.WoWpause);
             // 
             // button16
             // 
-            this.button16.Location = new System.Drawing.Point(856, 333);
+            this.button16.Location = new System.Drawing.Point(487, 413);
             this.button16.Margin = new System.Windows.Forms.Padding(4);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(108, 41);
             this.button16.TabIndex = 20;
-            this.button16.Text = "Pause";
+            this.button16.Text = "Resume";
             this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
+            this.button16.Click += new System.EventHandler(this.WoWresume);
             // 
             // button18
             // 
-            this.button18.Location = new System.Drawing.Point(1135, 274);
+            this.button18.Location = new System.Drawing.Point(1021, 274);
             this.button18.Margin = new System.Windows.Forms.Padding(4);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(108, 159);
             this.button18.TabIndex = 22;
             this.button18.Text = "record sound";
             this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.record);
             // 
             // infolabel
             // 
@@ -298,7 +285,6 @@
             this.infolabel.Size = new System.Drawing.Size(11, 16);
             this.infolabel.TabIndex = 23;
             this.infolabel.Text = "-";
-            this.infolabel.Click += new System.EventHandler(this.infolabel_Click);
             // 
             // button12
             // 
@@ -365,13 +351,36 @@
             this.button17.TabIndex = 29;
             this.button17.Text = "apply";
             this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(682, 333);
+            this.button15.Margin = new System.Windows.Forms.Padding(4);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(108, 41);
+            this.button15.TabIndex = 30;
+            this.button15.Text = "Pause";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.mcipause);
+            // 
+            // button20
+            // 
+            this.button20.Location = new System.Drawing.Point(1187, 274);
+            this.button20.Margin = new System.Windows.Forms.Padding(4);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(108, 159);
+            this.button20.TabIndex = 31;
+            this.button20.Text = "stop record";
+            this.button20.UseVisualStyleBackColor = true;
+            this.button20.Click += new System.EventHandler(this.stopRecord);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 849);
+            this.Controls.Add(this.button20);
+            this.Controls.Add(this.button15);
             this.Controls.Add(this.button17);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label6);
@@ -381,7 +390,6 @@
             this.Controls.Add(this.infolabel);
             this.Controls.Add(this.button18);
             this.Controls.Add(this.button16);
-            this.Controls.Add(this.button15);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button11);
@@ -429,7 +437,6 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Label infolabel;
@@ -439,6 +446,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button20;
     }
 }
 

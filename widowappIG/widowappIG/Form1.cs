@@ -14,8 +14,7 @@ using System.Windows.Forms;
 using SharpDX;
 using SharpDX.DirectSound;
 using SharpDX.Multimedia;
-using System.Security.Cryptography;
-
+using static widowappIG.Form1;
 namespace widowappIG
 {
     public partial class Form1 : Form
@@ -25,38 +24,72 @@ namespace widowappIG
         [DllImport("winmm.dll")]
         private static extern long mciSendString(string Cmd, StringBuilder StrReturn, int ReturnLength, IntPtr HwndCallback);
         bool mci = false;
+
         private DirectSound directSound;
         private SecondarySoundBuffer buffer;
         private int effectIndex = 0; //0 - brak, 1 - pogłos, 2 - echo, 3 - chór, 4 - flanger 
 
+        private static IntPtr waveInHandle;
+        private IntPtr WaveOut; // uchwyt  waveout
+        private WaveHeader waveHeader; // naglowek audio .wav
+        private byte[] audioData; // bufor odtwarzanego dzwieku
+
+        [DllImport("winmm.dll")]
+        public static extern int mciGetErrorString(uint mcierr, StringBuilder pszText, int cchText);
+
+
+        [DllImport("winmm.dll")]
+        public static extern int waveOutOpen(out IntPtr WaveOut, int uDeviceID, WaveFormat lpFormat, IntPtr Callback, IntPtr Instance, int dwFlags);
+
+        [DllImport("winmm.dll")]
+        public static extern int waveOutPrepareHeader(IntPtr WaveOut, ref WaveHeader lpWaveOutHdr, int uSize);
+
+        [DllImport("winmm.dll")]
+        public static extern int waveOutWrite(IntPtr WaveOut, ref WaveHeader lpWaveOutHdr, int uSize);
+
+        [DllImport("winmm.dll")]
+        public static extern int waveOutPause(IntPtr WaveOut);
+
+        [DllImport("winmm.dll")]
+        public static extern int waveOutRestart(IntPtr WaveOut);
+
+        [DllImport("winmm.dll")]
+        public static extern int waveOutClose(IntPtr WaveOut);
+        [DllImport("winmm.dll")]
+        public static extern int waveOutReset(IntPtr WaveOut);
+
+        [DllImport("winmm.dll")]
+        public static extern int waveOutUnprepareHeader(IntPtr WaveOut, ref WaveHeader WaveOutHdr, int uSize);
+
+        [StructLayout(LayoutKind.Sequential)]
+        public class WaveFormat
+        {
+            public short FormatTag = 1;
+            public short Channels = 2;
+            public int SamplesPerSec = 44100;
+            public int AverageBytesPerSecond = 44100 * 4;
+            public short BlockAlign = 4;
+            public short BitsPerSample = 16;
+            public short cbSize = 0;
+        }
+
+        // Nagłówek danych audio
+        [StructLayout(LayoutKind.Sequential)]
+        public struct WaveHeader
+        {
+            public IntPtr Data;
+            public int BufferLength;
+            public int BytesRecorded;
+            public IntPtr User;
+            public int Flags;
+            public int Loops;
+            public IntPtr Next;
+            public IntPtr reserved;
+        }
+
         public Form1()
         {
             InitializeComponent();
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click_1(object sender, EventArgs e)
-        {
 
         }
 
@@ -96,7 +129,34 @@ namespace widowappIG
         //WaveOur Write
         private void WOWplay(object sender, EventArgs e)
         {
+            if (file_path != null)
+            {
+                audioData = File.ReadAllBytes(file_path);
+                GCHandle handle = GCHandle.Alloc(audioData, GCHandleType.Pinned);
 
+                waveHeader = new WaveHeader()
+                {
+                    Data = handle.AddrOfPinnedObject(),
+                    BufferLength = audioData.Length
+                };
+
+                WaveFormat format = new WaveFormat()
+                {
+                    Channels = 2, // Stereo
+                    SamplesPerSec = 44100, // 44.1 kHz
+                    BitsPerSample = 16, // 16-bit
+                    BlockAlign = 4, // 2 (Stereo) * 2 (16-bit)
+                    AverageBytesPerSecond = 44100 * 4 // 44100 * 2 * 16/8
+                };
+
+                waveOutOpen(out WaveOut, -1, format, IntPtr.Zero, IntPtr.Zero, 0);
+                waveOutPrepareHeader(WaveOut, ref waveHeader, Marshal.SizeOf(waveHeader));
+
+                if (audioData != null && WaveOut != IntPtr.Zero)
+                {
+                    waveOutWrite(WaveOut, ref waveHeader, Marshal.SizeOf(waveHeader));
+                }
+            }
         }
 
         //MCI
@@ -114,14 +174,14 @@ namespace widowappIG
         }
 
         //DirectSound
-        /*private void DSplay(object sender, EventArgs e)
+        private void DSplay(object sender, EventArgs e)
         {
-            if (file_path != "")
+            if (file_path != null)
             {
                 var soundStream = new SoundStream(File.OpenRead(file_path));
                 directSound = new DirectSound();
                 directSound.SetCooperativeLevel(this.Handle, CooperativeLevel.Priority);
-                WaveFormat waveFormat = new WaveFormat();
+                SharpDX.Multimedia.WaveFormat waveFormat = soundStream.Format;
                 SoundBufferDescription bufferDesc = new SoundBufferDescription
                 {
                     Format = waveFormat,
@@ -135,114 +195,10 @@ namespace widowappIG
                 
                 this.buffer.Play(0, PlayFlags.None);
             }
-        }*/
-        private void DSplay(object sender, EventArgs e)
-        {
-            if (file_path != "")
-            {
-                var soundStream = new SoundStream(File.OpenRead(file_path));
-                directSound = new DirectSound();
-                directSound.SetCooperativeLevel(this.Handle, CooperativeLevel.Priority);
-
-                WaveFormat waveFormat = soundStream.Format;
-                SoundBufferDescription bufferDesc = new SoundBufferDescription
-                {
-                    Format = waveFormat,
-                    BufferBytes = (int)soundStream.Length,
-                    Flags = BufferFlags.ControlVolume | BufferFlags.GlobalFocus
-                };
-
-                this.buffer = new SecondarySoundBuffer(directSound, bufferDesc);
-
-                // Odczytaj dane dźwiękowe
-                var bufferData = new byte[soundStream.Length];
-                soundStream.Read(bufferData, 0, bufferData.Length);
-
-                // Zastosowanie efektu echa, jeśli effectIndex == 2 (echo)
-                //if (effectIndex == 2)
-                {
-                    ApplyEchoEffect(ref bufferData, waveFormat, delayMilliseconds: 500, feedback: 0.5f);
-                }
-
-                this.buffer.Write(bufferData, 0, LockFlags.None);
-                this.buffer.Play(0, PlayFlags.None);
-            }
         }
+//zatrzymywanie dźwięku
 
-        private void ApplyEchoEffect(ref byte[] audioData, WaveFormat format, int delayMilliseconds, float feedback)
-        {
-            int bytesPerSample = format.BitsPerSample / 8; // Ilość bajtów na próbkę
-            int sampleRate = format.SampleRate;            // Próbki na sekundę
-            int channels = format.Channels;                // Liczba kanałów (np. stereo)
-
-            // Oblicz opóźnienie w próbkach
-            int delaySamples = (sampleRate * delayMilliseconds * channels) / 1000;
-            int delayBytes = delaySamples * bytesPerSample;
-
-            if (format.BitsPerSample == 16)
-            {
-                // Dla 16-bitowego audio (często stosowanego)
-                for (int i = delayBytes; i < audioData.Length - bytesPerSample; i += bytesPerSample)
-                {
-                    for (int channel = 0; channel < channels; channel++)
-                    {
-                        int originalSampleIndex = i + channel * 2;
-
-                        // Odczyt oryginalnej próbki 16-bitowej (małe endianie)
-                        short originalSample = BitConverter.ToInt16(audioData, originalSampleIndex);
-
-                        // Odczyt próbki z opóźnieniem, uwzględniając kanał
-                        int delayedSampleIndex = originalSampleIndex - delayBytes;
-                        if (delayedSampleIndex < 0) continue; // Pomijamy operację, jeśli indeks jest poza zakresem
-
-                        short delayedSample = BitConverter.ToInt16(audioData, delayedSampleIndex);
-
-                        // Modyfikacja próbki na podstawie echa
-                        int newSample = originalSample + (int)(delayedSample * feedback);
-
-                        // Ogranicz wartość, aby nie przekroczyć zakresu 16-bitowego (od -32768 do 32767)
-                        newSample = Math.Min(Math.Max(newSample, short.MinValue), short.MaxValue);
-
-                        // Konwersja z powrotem do bajtów
-                        byte[] newSampleBytes = BitConverter.GetBytes((short)newSample);
-
-                        // Aktualizacja danych dźwiękowych
-                        audioData[originalSampleIndex] = newSampleBytes[0];
-                        audioData[originalSampleIndex + 1] = newSampleBytes[1];
-                    }
-                }
-            }
-            else if (format.BitsPerSample == 8)
-            {
-                // Dla 8-bitowego audio
-                for (int i = delayBytes; i < audioData.Length; i += bytesPerSample)
-                {
-                    for (int channel = 0; channel < channels; channel++)
-                    {
-                        int originalSampleIndex = i + channel;
-
-                        // Odczyt oryginalnej próbki 8-bitowej (0-255, przeskalowane na -128 do 127)
-                        byte originalSample = audioData[originalSampleIndex];
-                        byte delayedSample = audioData[originalSampleIndex - delayBytes];
-
-                        // Modyfikacja próbki
-                        int newSample = originalSample + (int)((delayedSample - 128) * feedback);
-
-                        // Ograniczanie wartości do zakresu 0-255
-                        newSample = Math.Min(Math.Max(newSample + 128, 0), 255);
-
-                        // Aktualizacja danych dźwiękowych
-                        audioData[originalSampleIndex] = (byte)newSample;
-                    }
-                }
-            }
-        }
-
-
-
-            //zatrzymywanie dźwięku
-
-            //PlaySound
+        //PlaySound
             private void PSstop(object sender, EventArgs e)
         {
             if(sound != null)
@@ -264,11 +220,16 @@ namespace widowappIG
         //WaveOut Write
         private void WOWstop(object sender, EventArgs e)
         {
-
+            if (WaveOut != IntPtr.Zero)
+            {
+                waveOutReset(WaveOut);
+                waveOutClose(WaveOut);
+                WaveOut = IntPtr.Zero;
+            }
         }
 
         //MCI
-        private void MCIstop(object sender, EventArgs e)
+        private void MCIstop(object sender, EventArgs e)    
         {
             if (mci)
             {
@@ -287,11 +248,7 @@ namespace widowappIG
             }
         }
 
-        private void button12_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        //WindowsMediaPlayer
         private void WMPpause(object sender, EventArgs e)
         {
             if (axWindowsMediaPlayer1 != null)
@@ -300,12 +257,15 @@ namespace widowappIG
             }
         }
 
-        private void button14_Click(object sender, EventArgs e)
+        private void WoWpause(object sender, EventArgs e) // wow pause
         {
-
+            if (WaveOut != IntPtr.Zero)
+            {
+                waveOutPause(WaveOut);
+            }
         }
 
-        private void button15_Click(object sender, EventArgs e)
+        private void mcipause(object sender, EventArgs e)
         {
             if (mci)
             {
@@ -314,9 +274,12 @@ namespace widowappIG
             }
         }
 
-        private void button16_Click(object sender, EventArgs e)
+        private void WoWresume(object sender, EventArgs e) // wow resume
         {
-
+            if (WaveOut != IntPtr.Zero)
+            {
+                waveOutRestart(WaveOut);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -337,10 +300,6 @@ namespace widowappIG
             infolabel.Text = "The file is accessed: "+file_path;
         }
 
-        private void infolabel_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void WMPresume(object sender, EventArgs e)
         {
@@ -370,9 +329,56 @@ namespace widowappIG
             MessageBox.Show("Wybrany indeks: " + effectIndex.ToString());
         }
 
-        private void button17_Click(object sender, EventArgs e)
+        private void record(object sender, EventArgs e)
         {
-            
+            string command = "open new type waveaudio alias recording";
+            long result = mciSendString(command, null, 0, IntPtr.Zero);
+            if (result != 0)
+            {
+                StringBuilder errorText = new StringBuilder(256);
+                mciGetErrorString((uint)result, errorText, errorText.Capacity);
+                MessageBox.Show("MCI Error: " + errorText.ToString());
+            }
+            infolabel.Text = result.ToString();
+            command = "record recording";
+            result = mciSendString(command, null, 0, IntPtr.Zero);
+            if (result != 0)
+            {
+                StringBuilder errorText = new StringBuilder(256);
+                mciGetErrorString((uint)result, errorText, errorText.Capacity);
+                MessageBox.Show("MCI Error: " + errorText.ToString());
+            }
+            infolabel.Text = result.ToString();
+        }
+
+        private void stopRecord(object sender, EventArgs e)
+        {
+            {
+                long result = mciSendString("stop recording", null, 0, IntPtr.Zero);
+                infolabel.Text = result.ToString();
+                if (result != 0)
+                {
+                    StringBuilder errorText = new StringBuilder(256);
+                    mciGetErrorString((uint)result, errorText, errorText.Capacity);
+                    MessageBox.Show("MCI Error: " + errorText.ToString());
+                }
+                result = mciSendString("save recording C:\\Users\\julia\\OneDrive\\Pulpit\\result.wav", null, 0, IntPtr.Zero);
+                if (result != 0)
+                {
+                    StringBuilder errorText = new StringBuilder(256);
+                    mciGetErrorString((uint)result, errorText, errorText.Capacity);
+                    MessageBox.Show("MCI Error: " + errorText.ToString());
+                }
+                infolabel.Text = result.ToString();
+                result = mciSendString("close recording", null, 0, IntPtr.Zero);
+                if (result != 0)
+                {
+                    StringBuilder errorText = new StringBuilder(256);
+                    mciGetErrorString((uint)result, errorText, errorText.Capacity);
+                    MessageBox.Show("MCI Error: " + errorText.ToString());
+                }
+                infolabel.Text = result.ToString();
+            }
         }
     }
 }
