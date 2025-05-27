@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "skanerAplikacja", "skanerAplikacja\skanerAplikacja.csproj", "{5292739E-43E5-48F4-A0BC-948A7604225C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5292739E-43E5-48F4-A0BC-948A7604225C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5292739E-43E5-48F4-A0BC-948A7604225C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5292739E-43E5-48F4-A0BC-948A7604225C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5292739E-43E5-48F4-A0BC-948A7604225C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B0D99E9-7964-4B76-AEB4-FE93D66ECE40}
+	EndGlobalSection
+EndGlobal

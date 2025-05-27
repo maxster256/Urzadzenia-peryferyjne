@@ -1,0 +1,40 @@
+C:\Users\julia\source\repos\SilnikKrokowy\SilnikKrokowy\bin\Debug\net8.0-windows\SilnikKrokowy.exe
+C:\Users\julia\source\repos\SilnikKrokowy\SilnikKrokowy\bin\Debug\net8.0-windows\SilnikKrokowy.deps.json
+C:\Users\julia\source\repos\SilnikKrokowy\SilnikKrokowy\bin\Debug\net8.0-windows\SilnikKrokowy.runtimeconfig.json
+C:\Users\julia\source\repos\SilnikKrokowy\SilnikKrokowy\bin\Debug\net8.0-windows\SilnikKrokowy.dll
+C:\Users\julia\source\repos\SilnikKrokowy\SilnikKrokowy\bin\Debug\net8.0-windows\SilnikKrokowy.pdb
+C:\Users\julia\source\repos\SilnikKrokowy\SilnikKrokowy\bin\Debug\net8.0-windows\FTD2XX_NET.dll
+C:\Users\julia\source\repos\SilnikKrokowy\SilnikKrokowy\bin\Debug\net8.0-windows\FTD2XX_NET.xml
+C:\Users\julia\source\repos\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\SilnikKrokowy.csproj.AssemblyReference.cache
+C:\Users\julia\source\repos\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\SilnikKrokowy.Form1.resources
+C:\Users\julia\source\repos\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\SilnikKrokowy.csproj.GenerateResource.cache
+C:\Users\julia\source\repos\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\SilnikKrokowy.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\julia\source\repos\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\SilnikKrokowy.AssemblyInfoInputs.cache
+C:\Users\julia\source\repos\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\SilnikKrokowy.AssemblyInfo.cs
+C:\Users\julia\source\repos\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\SilnikKrokowy.csproj.CoreCompileInputs.cache
+C:\Users\julia\source\repos\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\SilnikKr.8D78B6FB.Up2Date
+C:\Users\julia\source\repos\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\SilnikKrokowy.dll
+C:\Users\julia\source\repos\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\refint\SilnikKrokowy.dll
+C:\Users\julia\source\repos\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\SilnikKrokowy.pdb
+C:\Users\julia\source\repos\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\SilnikKrokowy.genruntimeconfig.cache
+C:\Users\julia\source\repos\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\ref\SilnikKrokowy.dll
+C:\Users\Jakub Smolarczyk\Desktop\UPeczki\SilnikKrokowy\SilnikKrokowy\bin\Debug\net8.0-windows\SilnikKrokowy.exe
+C:\Users\Jakub Smolarczyk\Desktop\UPeczki\SilnikKrokowy\SilnikKrokowy\bin\Debug\net8.0-windows\SilnikKrokowy.deps.json
+C:\Users\Jakub Smolarczyk\Desktop\UPeczki\SilnikKrokowy\SilnikKrokowy\bin\Debug\net8.0-windows\SilnikKrokowy.runtimeconfig.json
+C:\Users\Jakub Smolarczyk\Desktop\UPeczki\SilnikKrokowy\SilnikKrokowy\bin\Debug\net8.0-windows\SilnikKrokowy.dll
+C:\Users\Jakub Smolarczyk\Desktop\UPeczki\SilnikKrokowy\SilnikKrokowy\bin\Debug\net8.0-windows\SilnikKrokowy.pdb
+C:\Users\Jakub Smolarczyk\Desktop\UPeczki\SilnikKrokowy\SilnikKrokowy\bin\Debug\net8.0-windows\FTD2XX_NET.dll
+C:\Users\Jakub Smolarczyk\Desktop\UPeczki\SilnikKrokowy\SilnikKrokowy\bin\Debug\net8.0-windows\FTD2XX_NET.xml
+C:\Users\Jakub Smolarczyk\Desktop\UPeczki\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\SilnikKrokowy.csproj.AssemblyReference.cache
+C:\Users\Jakub Smolarczyk\Desktop\UPeczki\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\SilnikKrokowy.Form1.resources
+C:\Users\Jakub Smolarczyk\Desktop\UPeczki\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\SilnikKrokowy.csproj.GenerateResource.cache
+C:\Users\Jakub Smolarczyk\Desktop\UPeczki\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\SilnikKrokowy.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jakub Smolarczyk\Desktop\UPeczki\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\SilnikKrokowy.AssemblyInfoInputs.cache
+C:\Users\Jakub Smolarczyk\Desktop\UPeczki\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\SilnikKrokowy.AssemblyInfo.cs
+C:\Users\Jakub Smolarczyk\Desktop\UPeczki\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\SilnikKrokowy.csproj.CoreCompileInputs.cache
+C:\Users\Jakub Smolarczyk\Desktop\UPeczki\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\SilnikKr.8D78B6FB.Up2Date
+C:\Users\Jakub Smolarczyk\Desktop\UPeczki\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\SilnikKrokowy.dll
+C:\Users\Jakub Smolarczyk\Desktop\UPeczki\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\refint\SilnikKrokowy.dll
+C:\Users\Jakub Smolarczyk\Desktop\UPeczki\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\SilnikKrokowy.pdb
+C:\Users\Jakub Smolarczyk\Desktop\UPeczki\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\SilnikKrokowy.genruntimeconfig.cache
+C:\Users\Jakub Smolarczyk\Desktop\UPeczki\SilnikKrokowy\SilnikKrokowy\obj\Debug\net8.0-windows\ref\SilnikKrokowy.dll

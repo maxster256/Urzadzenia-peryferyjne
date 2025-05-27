@@ -1,0 +1,45 @@
+C:\Users\Jakub Smolarczyk\source\repos\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.csproj.AssemblyReference.cache
+C:\Users\Jakub Smolarczyk\source\repos\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.Form1.resources
+C:\Users\Jakub Smolarczyk\source\repos\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.Properties.Resources.resources
+C:\Users\Jakub Smolarczyk\source\repos\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.csproj.GenerateResource.cache
+C:\Users\Jakub Smolarczyk\source\repos\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.csproj.CoreCompileInputs.cache
+C:\Users\Jakub Smolarczyk\source\repos\skanerAplikacja\skanerAplikacja\bin\Debug\skanerAplikacja.exe.config
+C:\Users\Jakub Smolarczyk\source\repos\skanerAplikacja\skanerAplikacja\bin\Debug\skanerAplikacja.exe
+C:\Users\Jakub Smolarczyk\source\repos\skanerAplikacja\skanerAplikacja\bin\Debug\skanerAplikacja.pdb
+C:\Users\Jakub Smolarczyk\source\repos\skanerAplikacja\skanerAplikacja\bin\Debug\WiaDotNet.dll
+C:\Users\Jakub Smolarczyk\source\repos\skanerAplikacja\skanerAplikacja\bin\Debug\WiaDotNet.pdb
+C:\Users\Jakub Smolarczyk\source\repos\skanerAplikacja\skanerAplikacja\obj\Debug\Interop.WIA.dll
+C:\Users\Jakub Smolarczyk\source\repos\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.csproj.ResolveComReference.cache
+C:\Users\Jakub Smolarczyk\source\repos\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAp.12553255.Up2Date
+C:\Users\Jakub Smolarczyk\source\repos\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.exe
+C:\Users\Jakub Smolarczyk\source\repos\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.pdb
+D:\skanerAplikacja\skanerAplikacja\bin\Debug\skanerAplikacja.exe.config
+D:\skanerAplikacja\skanerAplikacja\bin\Debug\skanerAplikacja.exe
+D:\skanerAplikacja\skanerAplikacja\bin\Debug\skanerAplikacja.pdb
+D:\skanerAplikacja\skanerAplikacja\bin\Debug\WiaDotNet.dll
+D:\skanerAplikacja\skanerAplikacja\bin\Debug\WiaDotNet.pdb
+D:\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.csprojAssemblyReference.cache
+D:\skanerAplikacja\skanerAplikacja\obj\Debug\Interop.WIA.dll
+D:\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.csproj.ResolveComReference.cache
+D:\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.Form1.resources
+D:\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.Properties.Resources.resources
+D:\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.csproj.GenerateResource.cache
+D:\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.csproj.CoreCompileInputs.cache
+D:\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.csproj.CopyComplete
+D:\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.exe
+D:\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.pdb
+E:\skanerAplikacja\skanerAplikacja\bin\Debug\skanerAplikacja.exe.config
+E:\skanerAplikacja\skanerAplikacja\bin\Debug\skanerAplikacja.exe
+E:\skanerAplikacja\skanerAplikacja\bin\Debug\skanerAplikacja.pdb
+E:\skanerAplikacja\skanerAplikacja\bin\Debug\WiaDotNet.dll
+E:\skanerAplikacja\skanerAplikacja\bin\Debug\WiaDotNet.pdb
+E:\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.csproj.AssemblyReference.cache
+E:\skanerAplikacja\skanerAplikacja\obj\Debug\Interop.WIA.dll
+E:\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.csproj.ResolveComReference.cache
+E:\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.Form1.resources
+E:\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.Properties.Resources.resources
+E:\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.csproj.GenerateResource.cache
+E:\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.csproj.CoreCompileInputs.cache
+E:\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAp.12553255.Up2Date
+E:\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.exe
+E:\skanerAplikacja\skanerAplikacja\obj\Debug\skanerAplikacja.pdb
